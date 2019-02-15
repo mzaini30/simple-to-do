@@ -1,2 +1,1 @@
-# simple-to-do
-APK simple to do untuk kehidupan sehari-hari
+Ini adalah source code dari APK Simple To Do.

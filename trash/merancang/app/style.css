@@ -1,0 +1,23 @@
+body {
+  padding-top: 70px !important;
+}
+
+table tr:first-child td {
+	border-top: none;
+}
+
+.isi {
+	font-weight: bold;
+}
+.selesai {
+	text-decoration: line-through;
+	font-style: italic;
+	font-weight: normal;
+}
+
+.cek-container {
+	width: 52.8px;
+}
+.hapus-container {
+	width: 50.4px;
+}
