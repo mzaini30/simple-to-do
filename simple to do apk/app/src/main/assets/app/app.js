@@ -4,6 +4,10 @@ if (localStorage.getItem('level') === null){
 	level = parseInt(localStorage.getItem('level'))
 }
 
+$('.navbar-nav a').click(function(){
+	$('.navbar-toggle').click()
+})
+
 // inisialisasi bulan ini
 
 tanggalan = new Date()
