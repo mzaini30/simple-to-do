@@ -4,6 +4,18 @@ if (localStorage.getItem('level') === null){
 	level = parseInt(localStorage.getItem('level'))
 }
 
+// inisialisasi bulan ini
+
+tanggalan = new Date()
+bulan = tanggalan.getMonth()
+bulan++
+bulan2 = bulan++
+
+list_bulan = ['Januari', 'Februari', 'Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember']
+
+hari_ini = tanggalan.getDate() + ' ' + list_bulan[tanggalan.getMonth()]
+$('.navbar-brand').html(hari_ini)
+
 update_persen = function(){
 	sudah_selesai = $('.cek-oke').length
 	sudah_selesai_aktif = $('.cek-oke.aktif').length
