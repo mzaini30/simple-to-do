@@ -20,6 +20,17 @@ list_bulan = ['Januari', 'Februari', 'Maret','April','Mei','Juni','Juli','Agustu
 hari_ini = tanggalan.getDate() + ' ' + list_bulan[tanggalan.getMonth()]
 $('.navbar-brand').html(hari_ini)
 
+urut = function(){
+	// urut
+	els = $('.list-canvas tr').get()
+	els.sort(function(el1, el2){
+	    // return $(el1).text().trim().localeCompare($(el2).text().trim())
+	    return $(el1).text() - $(el2).text()
+	})
+	$('.list-canvas tr').append(els)
+	// habis itu simpan lagi
+}
+
 update_persen = function(){
 	sudah_selesai = $('.cek-oke').length
 	sudah_selesai_aktif = $('.cek-oke.aktif').length
