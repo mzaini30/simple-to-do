@@ -56,9 +56,15 @@ $('.tambah-baru').submit(function(){
 	item = $('.input-data').val()
 	if (item){
 		$('.list-canvas').append('<tr><td class="cek-container"><div class="btn btn-default cek aktif">&check;</div></td><td><div class="isi">' + item + '</div></td><td class="hapus-container"><div class="btn btn-danger hapus">&times;</div></td></tr>')
+		
+		// simpan dan update persen
 		localStorage.setItem('simple to do', $('.list-canvas').html())
 		update_persen()
+		
 		$('.input-data').val('')
+		$('html, body').animate({
+			scrollTop: $('.bawah').offset().top
+		}, 800)
 	}
 })
 
