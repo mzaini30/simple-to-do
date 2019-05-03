@@ -21,17 +21,43 @@ hari_ini = tanggalan.getDate() + ' ' + list_bulan[tanggalan.getMonth()]
 $('.navbar-brand').html(hari_ini)
 
 urut = function(){
-	// urut
-	els = $('.list-canvas tr').get()
-	els.sort(function(el1, el2){
-	    // return $(el1).text().trim().localeCompare($(el2).text().trim())
-	    return $(el1).text() - $(el2).text()
-	})
-	$('.list-canvas tr').append(els)
-	// habis itu simpan lagi
+	var $myColorList = $('.list-canvas tbody');
+
+	// Elements one layer deep get .children(), any deeper go with .find()
+	var $colors = $myColorList.children('tr');
+
+	/**
+	 * Bind $colors to the sort method so we don't have to travel up
+	 * all these properties more than once.
+	 */
+	var sortList = Array.prototype.sort.bind($colors);
+
+	sortList(function ( a, b ) {
+
+	    // Cache inner content from the first element (a) and the next sibling (b)
+	    var aText = a.innerHTML;
+	    var bText = b.innerHTML;
+	 
+	    // Returning -1 will place element `a` before element `b`
+	    if ( aText < bText ) {
+	        return -1;
+	    }
+
+	    // Returning 1 will do the opposite
+	    if ( aText > bText ) {
+	        return 1;
+	    }
+
+	    // Returning 0 leaves them as-is
+	    return 0;
+	});
+
+	// Put it right back where we got it
+	$myColorList.append($colors);
 }
 
 update_persen = function(){
+	urut()
 	sudah_selesai = $('.cek-oke').length
 	sudah_selesai_aktif = $('.cek-oke.aktif').length
 	semua = $('.cek.aktif').length
